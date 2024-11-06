@@ -1,0 +1,10 @@
+
+.main-bg {
+    background-image: url('/static/images/main-bg.jpg');
+    width: 100%;
+    height: 700px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}

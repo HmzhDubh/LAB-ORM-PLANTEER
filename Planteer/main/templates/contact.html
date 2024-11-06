@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+
+{% block main %}
+
+<main>
+    <div class="container p-5">
+        <div class="row row-cols-1 row-cols-md-2 g-5 h-100">
+            <div class="col">
+                <h1>Contact Us</h1>
+                <p>Fill the form bellow</p>
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-outline">
+                                <label class="form-label" for="first_name">First name</label>
+                                <input type="text" id="first_name" name="first_name" class="form-control" placeholder="Hmzh"/>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <label class="form-label" for="last_name">Last name</label>
+                                <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Dubh"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Hmzhdubh@gmail.com"/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="message">Your Message</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Enter Your message content here, Questions or Suggestion, or any message"></textarea>
+                    </div>
+                    <div class="d-grid">
+                        <button type="button" class="btn btn-dark btn-block p-2 mb-4">Send Image</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col">
+                <img class="rounded" src="{% static 'images/guava.jpg' %}" style="width: 100%; height: 500px;">
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

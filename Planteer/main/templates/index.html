@@ -1,18 +1,8 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %} Planteer {% endblock %}
 {% block additional_style%}
-<style>
-    .main-bg {
-            background-image: url('../static/images/main-bg.jpg');
-            width: 100%;
-            height: 700px;
-            background-repeat: no-repeat;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-    }
-</style>
+
 {% endblock %}
 {% block main %}
 <main>
@@ -24,10 +14,61 @@
             <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
     </div>
-    <div class="container">
-        <h2>Plants</h2>
-        <h3>Learn More About Plants</h3>
-        <a href="{% url 'plantApp:all_plants_view' %}">More -> </a>
+    <div class="container mt-5 pt-5">
+
+        <div class="container row">
+            <div class="col">
+                <h2>Plants</h2>
+                <h5 class="text-secondary">Learn More About Plants</h5>
+            </div>
+            <div class="col text-end">
+                <a href="{% url 'plantApp:all_plants_view'%}" class="text-decoration-none text-black h5">More -> </a>
+            </div>
+        </div>
+        <div class="container p-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4 h-100">
+                <div class="col">
+                <a href="#" class="text-decoration-none ">
+                <div class="card h-100 border border-0">
+                    <img src="{% static 'images/guava.jpg' %}" class="card-img-top rounded" alt="..." style="height:14rem">
+                    <div class="card-body">
+                        <h5 class="card-title">Guava</h5>
+                        <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text h5">Tree</p>
+
+                    </div>
+                </div>
+                </a>
+            </div>
+                <div class="col">
+                <a href="#" class="text-decoration-none ">
+                <div class="card h-100 border border-0">
+                    <img src="{% static 'images/guava.jpg' %}" class="card-img-top rounded" alt="..." style="height:14rem">
+                    <div class="card-body">
+                        <h5 class="card-title">Guava</h5>
+                        <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text h5">Tree</p>
+
+                    </div>
+                </div>
+                </a>
+            </div>
+                <div class="col">
+                <a href="#" class="text-decoration-none ">
+                <div class="card h-100 border border-0">
+                    <img src="{% static 'images/guava.jpg' %}" class="card-img-top rounded" alt="..." style="height:14rem">
+                    <div class="card-body">
+                        <h5 class="card-title">Guava</h5>
+                        <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text h5">Tree</p>
+
+                    </div>
+                </div>
+                </a>
+            </div>
+            </div>
+
+        </div>
     </div>
 </main>
 {% endblock %}
