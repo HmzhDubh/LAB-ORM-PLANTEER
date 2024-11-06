@@ -27,45 +27,23 @@
         </div>
         <div class="container p-5">
             <div class="row row-cols-1 row-cols-md-3 g-4 h-100">
-                <div class="col">
-                <a href="#" class="text-decoration-none ">
-                <div class="card h-100 border border-0">
-                    <img src="{% static 'images/guava.jpg' %}" class="card-img-top rounded" alt="..." style="height:14rem">
-                    <div class="card-body">
-                        <h5 class="card-title">Guava</h5>
-                        <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <p class="card-text h5">Tree</p>
 
-                    </div>
-                </div>
-                </a>
-            </div>
+                {% for plant in plants %}
                 <div class="col">
-                <a href="#" class="text-decoration-none ">
-                <div class="card h-100 border border-0">
-                    <img src="{% static 'images/guava.jpg' %}" class="card-img-top rounded" alt="..." style="height:14rem">
-                    <div class="card-body">
-                        <h5 class="card-title">Guava</h5>
-                        <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <p class="card-text h5">Tree</p>
+                    <a href="#" class="text-decoration-none ">
+                        <div class="card h-100 border border-0">
+                            <img src="{{ plant.image.url }}" class="card-img-top rounded" alt="..." style="height:14rem">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ plant.name }}</h5>
+                                <p class="card-text text-secondary">{{ plant.about }}</p>
+                                <p class="card-text h5">Category: {{plant.category}} Edible: {{plant.is_edible}}</p>
 
-                    </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                </a>
-            </div>
-                <div class="col">
-                <a href="#" class="text-decoration-none ">
-                <div class="card h-100 border border-0">
-                    <img src="{% static 'images/guava.jpg' %}" class="card-img-top rounded" alt="..." style="height:14rem">
-                    <div class="card-body">
-                        <h5 class="card-title">Guava</h5>
-                        <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <p class="card-text h5">Tree</p>
+                {% endfor %}
 
-                    </div>
-                </div>
-                </a>
-            </div>
             </div>
 
         </div>

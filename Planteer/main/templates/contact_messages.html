@@ -1,13 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<section class="vh-100">
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
 
+{% block main %}
 
-</section>
-</body>
-</html>
+<main>
+
+    <div class="container">
+        {% for msg in msgs %}
+        <div class="col">
+
+            <div class="card h-100 border border-0">
+
+                <div class="card-body">
+                    <h5 class="card-title">Sender: {{msg.first_name}} {{msg.last_name}} </h5>
+                    <p class="card-text text-secondary">Email: {{msg.email}}</p>
+                    <p class="card-text h5">Message: {{msg.message}}</p>
+                    <p class="card-text h5">Sent At: {{msg.created_at}}</p>
+
+                </div>
+            </div>
+
+        </div> <!-- End Plant Card -->
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

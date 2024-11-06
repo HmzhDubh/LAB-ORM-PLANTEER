@@ -10,7 +10,8 @@
             <div class="col">
                 <h1>Contact Us</h1>
                 <p>Fill the form bellow</p>
-                <form>
+                <form action="{% url 'main:contact_view' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col">
                             <div class="form-outline">
@@ -35,13 +36,13 @@
                         <textarea id="message" name="message" class="form-control" placeholder="Enter Your message content here, Questions or Suggestion, or any message"></textarea>
                     </div>
                     <div class="d-grid">
-                        <button type="button" class="btn btn-dark btn-block p-2 mb-4">Send Image</button>
+                        <button type="submit" class="btn btn-dark btn-block p-2 mb-4">Send Image</button>
                     </div>
                 </form>
             </div>
 
-            <div class="col">
-                <img class="rounded" src="{% static 'images/guava.jpg' %}" style="width: 100%; height: 500px;">
+            <div class="col mb-5">
+                <img class="rounded" src="{% static 'images/form-img.jpg' %}" style="width: 100%; height: 500px;">
             </div>
         </div>
     </div>

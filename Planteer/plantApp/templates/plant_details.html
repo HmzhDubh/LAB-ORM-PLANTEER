@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Plant Details {% endblock %}
+
+{% block main %}
+    <main>
+        <div class="container row m-5 p-5 g-5">
+            <div class="col">
+                <img class="rounded" src="{{plant.image.url}}" style="width: 100%; height: 80%;">
+            </div>
+            <div class="col pt-5">
+
+                <h1>{{plant.name}}</h1>
+                <h2>{{plant.about}}</h2>
+                <h2>{{plant.used_for}}</h2>
+
+                <h3>category: {{plant.category}}</h3>
+                <h3>Edible: {{plant.is_edible}}</h3>
+                <h3>Created At: {{plant.created_at}}</h3>
+                <div class="container m-3">
+                    <a href="/" type="button" class="btn btn-dark me-2">Edit </a>
+                    <a href="/" type="button" class="btn btn-dark">Remove </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+{% endblock %}
