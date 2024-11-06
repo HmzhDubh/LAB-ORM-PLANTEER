@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Planteer {% endblock %}
+{% block additional_style%}
+<style>
+    .main-bg {
+            background-image: url('../static/images/main-bg.jpg');
+            width: 100%;
+            height: 700px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+    }
+</style>
+{% endblock %}
+{% block main %}
+<main>
+    <div class="container justify-content-center main-bg text-light align-items-center">
+        <h1>Planteer</h1>
+        <h2>Database For Plants Lovers</h2>
+        <form class="d-flex" role="search">
+            <input class="form-control pe-5 me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="container">
+        <h2>Plants</h2>
+        <h3>Learn More About Plants</h3>
+        <a href="{% url 'plantApp:all_plants_view' %}">More -> </a>
+    </div>
+</main>
+{% endblock %}
