@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Add Plant{% endblock %}
+{% block title %}Update Plant{% endblock %}
 
 {% block main %}
 
@@ -8,53 +8,54 @@
     <div class="container p-5">
         <div class="row row-cols-1 row-cols-md-2 g-5 h-100 justify-content-center">
             <div class="col">
-                <h1>Add New Plant</h1>
-                <p>Complete Plant Information Bellow</p>
-                <form action="{% url 'plantApp:new_plant_view' %}" method="post" enctype="multipart/form-data">
+                <h1>Update Plant ({{plant.name}})</h1>
+                <p>Complete Plant Information</p>
+                <form action="{% url 'plantApp:update_plant_view' plant.id %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="col">
                         <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="name">Plant Name</label>
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Guava" required/>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Guava" value="{{plant.name}}" required/>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="about">About</label>
-                                <input type="text" id="about" name="about" class="form-control" placeholder="Guava is an edible tree..." required/>
+                                <input type="text" id="about" name="about" class="form-control" placeholder="Guava is an edible tree... " value="{{plant.about}}" required/>
                             </div>
                         </div>
                     </div>
                     <div class="col form-outline mb-4">
                         <label class="form-label" for="used_for">Used For</label>
-                        <input type="text" id="used_for" name="used_for" class="form-control" placeholder="It's used as sweet edible food" required/>
+                        <input type="text" id="used_for" name="used_for" class="form-control" placeholder="It's used as sweet edible food" value="{{plant.used_for}}" required/>
                     </div>
                     <div class="col form-outline mb-4">
                         <label class="form-label" for="category">Plant Category</label>
                         <select class="form-select" id="category" name="category" required>
                             <option >Select Category</option>
-                            <option value="tree">Tree</option>
-                            <option value="fruit">Fruit</option>
-                            <option value="vegetables">Vegetables</option>
+                            <option value="tree" {% if plant.category == 'tree' %}selected{% endif %}> Tree  </option>
+                            <option value="fruit" {% if plant.category == 'fruit' %}selected{% endif %}>Fruit</option>
+                            <option value="vegetables" {% if plant.category == 'vegetables' %}selected{% endif %}>Vegetables</option>
 
                         </select>
                     </div>
                     <div class="col form-outline mb-4 text-center">
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="is_edible" id="True" value="True" checked>
+                            <input type="radio" class="btn-check" name="is_edible" id="True" value="True" {% if plant.is_edible %} checked {% endif %}>
                             <label class="btn btn-outline-dark" for="True">Edible</label>
 
-                            <input type="radio" class="btn-check" name="is_edible" id="False" value="False">
+                            <input type="radio" class="btn-check" name="is_edible" id="False" value="False" {% if not plant.is_edible %} checked {% endif %}>
                             <label class="btn btn-outline-dark" for="False">Non-Edible</label>
                         </div>
                     </div>
+                    <img src="{{plant.image.url}}" width="20%">
                     <div class="input-group mb-3">
                         <label class="input-group-text bg-dark text-light" for="image">Upload Plant Image</label>
-                        <input type="file" class="form-control bg-dark text-light" id="image" name="image" required>
+                        <input type="file" class="form-control bg-dark text-light" id="image" name="image">
                     </div>
                     <div class="col d-grid">
-                        <button type="submit" class="btn btn-dark btn-block p-2 mb-4">Send Image</button>
+                        <button type="submit" class="btn btn-dark btn-block p-2 mb-4">Update Plant</button>
                     </div>
 
                 </form>
