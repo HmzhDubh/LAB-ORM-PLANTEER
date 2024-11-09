@@ -7,11 +7,12 @@
 {% block main %}
 <main>
     <div class="container justify-content-center main-bg text-light align-items-center">
-        <h1>Planteer</h1>
-        <h2>Database For Plants Lovers</h2>
-        <form class="d-flex" role="search">
-            <input class="form-control pe-5 me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Search</button>
+        <h1 class="display-1">Planteer</h1>
+        <h1 class="display-2">Database For Plants Lovers</h1>
+        <form action="{% url 'plantApp:search_view' %}" method="get" class="container-fluid d-flex justify-content-center" role="search">
+
+            <input class="form-control pe-5 me-2 text-center" style="width:60rem" type="search" name="keyword" value="{{ request.GET.keyword }}" placeholder="Search" aria-label="Search">
+
         </form>
     </div>
     <div class="container mt-5 pt-5">
@@ -30,7 +31,7 @@
 
                 {% for plant in plants %}
                 <div class="col">
-                    <a href="#" class="text-decoration-none ">
+                    <a href="{% url 'plantApp:plant_details_view' plant.id %}" class="text-decoration-none ">
                         <div class="card h-100 border border-0">
                             <img src="{{ plant.image.url }}" class="card-img-top rounded" alt="..." style="height:14rem">
                             <div class="card-body">

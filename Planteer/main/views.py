@@ -3,31 +3,27 @@ from django.http import HttpRequest, HttpResponse
 
 from .models import Contact
 from plantApp.models import Plant
+from .forms import ContactForm
 # Create your views here.
 
 
 def home_view(request: HttpRequest):
 
-    plants = Plant.objects.all()
+    plants = Plant.objects.all()[0:3]
     return render(request, 'index.html', context={'plants': plants})
 
 
 def contact_view(request: HttpRequest):
 
+    contact_form = ContactForm()
     if request.method == "POST":
-        new_msg = Contact(
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            return redirect('main:contact_messages_view')
+            # print(request.POST)
+        else: print("Form is Not Valid")
 
-            first_name=request.POST['first_name'],
-            last_name=request.POST['last_name'],
-            email=request.POST['email'],
-            message=request.POST['message'],
-
-        )
-
-        new_msg.save()
-        print(request.POST)
-        request = redirect('main:contact_messages_view')
-        return request
 
     request = render(request, 'contact.html')
     return request

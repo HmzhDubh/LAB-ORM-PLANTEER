@@ -17,13 +17,16 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light m-5">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'main:home_view' %}">Planteer</a>
+                <a class="navbar-brand h1" href="{% url 'main:home_view' %}">Planteer</a>
             </div>
             <div class="container-fluid justify-content-end pe-3">
 
                 <ul class="navbar-nav">
                     <li class="btn btn-sm nav-item me-3">
                         <a class="nav-link text-dark" href="{% url 'plantApp:all_plants_view' %}">All Plants</a>
+                    </li>
+                    <li class="btn btn-sm nav-item me-3">
+                        <a class="nav-link text-dark" href="{% url 'main:contact_messages_view' %}">Messages</a>
                     </li>
                     <li class="btn btn-sm nav-item me-3">
                         <a class="nav-link text-dark" href="{% url 'main:contact_view' %}">Contact Us</a>

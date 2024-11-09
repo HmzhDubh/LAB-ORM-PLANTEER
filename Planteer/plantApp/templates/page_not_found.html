@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Plant Details {% endblock %}
+{% block title %} Plant Not Found {% endblock %}
 
-{% block content %}
+{% block main %}
 <main>
-    <div class="not-found-container">
-        <div class="a">
+    <div class="container">
+        <div class="link">
             <h1>Oops!</h1>
 
             <h3>404. This is An Error </h3>
             <h3>The Plant you are looking for was not found</h3>
             <h3>That's all we know</h3>
         </div>
-        <img src="{% static 'images/form-img.jpg' %}">
+        <img class="img rounded mx-100 d-block " src="{% static 'images/form-img.jpg' %}">
 
     </div>
 

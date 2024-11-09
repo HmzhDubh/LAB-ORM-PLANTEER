@@ -18,7 +18,7 @@
                 <h3>Created At: {{plant.created_at}}</h3>
                 <div class="container m-3">
                     <a href="{% url 'plantApp:update_plant_view' plant.id %}" type="button" class="btn btn-dark me-2">Edit </a>
-                    <a href="/" type="button" class="btn btn-dark">Remove </a>
+                    <a href="{% url 'plantApp:delete_plant_view' plant.id %}" type="button" class="btn btn-danger">Remove </a>
                 </div>
             </div>
 

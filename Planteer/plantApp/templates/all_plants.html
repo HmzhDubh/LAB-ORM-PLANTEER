@@ -7,9 +7,46 @@
 
     <div class="container mt-5 pt-5">
 
-        <div class="container">
-            <div>
+        <div class="container row">
+            <div class="col justify-content-start">
                 <h2>All Plants</h2>
+            </div>
+            <div class="col dropdown text-end">
+                <div class="d-flex justify-content-end p-1">
+                    <form action="{% url 'plantApp:all_plants_view' %}" method="get" >
+                        <div class="d-flex gap-1">
+                            <select name="order_by" class="form-select d-flex bg-dark text-light">
+                                <option> Order By</option>
+                                <option> Any</option>
+                                <option value="newest" {% if request.GET.order_by == 'newest' %}selected{% endif %}> Newest </option>
+                                <option value="oldest" {% if request.GET.order_by == 'oldest' %}selected{% endif %}> Oldest </option>
+                            </select>
+
+
+
+                            <select name="category" class="form-select d-flex bg-dark text-light">
+                                <option> Category</option>
+                                <option> All</option>
+                                <option value="tree" {% if request.GET.category == 'tree' %}selected{% endif %}> Tree </option>
+                                <option value="fruit" {% if request.GET.category == 'fruit' %}selected{% endif %}> Fruit </option>
+                                <option value="vegetable" {% if request.GET.category == 'vegetable' %}selected{% endif %}> Vegetable </option>
+                                <option value="other" {% if request.GET.category == 'other' %}selected{% endif %}> Other </option>
+                            </select>
+
+                            <select name="is_edible" class="form-select d-flex bg-dark text-light">
+                                <option> Edibility </option>
+                                <option> All </option>
+                                <option value="edible" {% if request.GET.is_edible == 'edible' %}selected{% endif %}> Edible </option>
+                                <option value="non-edible" {% if request.GET.is_edible == 'non-edible' %}selected{% endif %}> Non_Edible </option>
+                            </select>
+
+                            <input type="submit" class="btn btn-dark" value="Apply">
+                        </div>
+
+                    </form>
+                </div>
+
+
             </div>
         </div>
         <div class="container p-5">
@@ -23,6 +60,7 @@
                                     <h5 class="card-title">{{plant.name}}</h5>
                                     <p class="card-text text-secondary">{{plant.about}}</p>
                                     <p class="card-text h5">{{plant.category}}</p>
+                                    <p class="card-text h6">{{ plant.created_at }}</p>
 
                                 </div>
                             </div>

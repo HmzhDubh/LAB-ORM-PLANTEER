@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} Search Results {% endblock %}
+
+{% block main %}
+<main>
+
+    <div class="container pt-5">
+        {% if results %}
+        <h1 class="">Search Results [{{ results.count }}]</h1>
+        <h5>Results For {{ request.GET.keyword }}</h5>
+        {% else %}
+        <p class="bg-warning p-3 rounded">No results Found that matches Your Search</p>
+        {% endif %}
+        <div class="container pt-5">
+            <form action="{% url 'plantApp:search_view' %}" method="get" class="container-fluid d-flex justify-content-center align-items-center" role="search">
+                <label class="pe-3">Search</label>
+                <input class="form-control pe-5 me-2 text-center" style="width:60rem" type="search" name="keyword" value="{{ request.GET.keyword }}" placeholder="Search Plants" aria-label="Search">
+            </form>
+        </div>
+
+    </div>
+    <div class="container p-4">
+        <div class="row mt-2 row-cols-1 row-cols-md-3 g-4 h-100">
+
+            {% for result in results %}
+            <div class="col">
+                <a href="{% url 'plantApp:plant_details_view' result.id %}" class="text-decoration-none ">
+                    <div class="card h-100 border border-0">
+                        <img src="{{ result.image.url}}" class="card-img-top rounded" alt="..." style="height:14rem">
+                        <div class="card-body">
+                            <h5 class="card-title">{{result.name}}</h5>
+                            <p class="card-text text-secondary">{{result.about}}</p>
+                            <p class="card-text h5">{{result.category}}</p>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</main>
+{% endblock %}
