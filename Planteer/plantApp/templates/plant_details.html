@@ -22,7 +22,32 @@
                 </div>
             </div>
 
-
         </div>
+        <hr class="my-4" style="width:90%;margin: 0 auto;">
+
+
+            <div class="container p-3">
+                <h5>Related Plants</h5>
+                <div class="row row-cols-1 row-cols-md-3 g-4 h-100 mt-3">
+                    {% for related_plant in related_plants %}
+                    <div class="col">
+                        <a href="{% url 'plantApp:plant_details_view' related_plant.id %}" class="text-decoration-none ">
+                            <div class="card h-100 border border-0">
+                                <img src="{{ related_plant.image.url}}" class="card-img-top rounded" alt="..." style="height:14rem">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{related_plant.name}}</h5>
+                                    <p class="card-text text-secondary">{{related_plant.about}}</p>
+                                    <p class="card-text h5">{{related_plant.category}}</p>
+                                    <p class="card-text h6">{{ related_plant.created_at }}</p>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+
     </main>
 {% endblock %}

@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
@@ -39,16 +40,22 @@ def all_plants_view(request: HttpRequest):
         elif request.GET['is_edible'] == 'non-edible':
             plants = Plant.objects.filter(is_edible=False)
 
-    return render(request, 'all_plants.html', context={'plants':plants})
+    paginator = Paginator(plants, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'all_plants.html', context={'plants': plants, 'page_obj': page_obj})
 
 
 def plant_details_view(request: HttpRequest, plant_id:int):
 
     try:
         plant = Plant.objects.get(pk=plant_id)
+        related_plants = Plant.objects.filter(category=plant.category).exclude(pk=plant_id)[0:3]
 
-        request = render(request, 'plant_details.html', context={'plant': plant})
+        request = render(request, 'plant_details.html', context={'plant': plant, 'related_plants': related_plants})
         return request
+
     except Exception as e:
         return render(request, 'page_not_found.html')
         print(e)
