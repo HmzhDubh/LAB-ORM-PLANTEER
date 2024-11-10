@@ -58,7 +58,7 @@
                                 <img src="{{ plant.image.url}}" class="card-img-top rounded" alt="..." style="height:14rem">
                                 <div class="card-body">
                                     <h5 class="card-title">{{plant.name}}</h5>
-                                    <p class="card-text text-secondary">{{plant.about}}</p>
+<!--                                    <p class="card-text text-secondary">{{plant.about}}</p>-->
                                     <p class="card-text h5">{{plant.category}}</p>
                                     <p class="card-text h6">{{ plant.created_at }}</p>
 
@@ -85,8 +85,10 @@
                 {% endif %}
             </ul>
         </div>
+        <div class="text-center">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </div>
 
-        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
     </div>
 </main>
 {% endblock %}

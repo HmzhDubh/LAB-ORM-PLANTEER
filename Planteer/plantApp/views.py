@@ -14,10 +14,10 @@ def all_plants_view(request: HttpRequest):
 
     if 'order_by' in request.GET:
         if request.GET['order_by'] == 'oldest':
-            plants = plants.order_by("-created_at")
+            plants = plants.order_by("created_at")
 
         elif request.GET['order_by'] == 'newest':
-            plants = plants.order_by("created_at")
+            plants = plants.order_by("-created_at")
 
     if 'category' in request.GET:
 

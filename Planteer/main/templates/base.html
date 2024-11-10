@@ -59,28 +59,31 @@
                     </div>
 
                 </div>
-                <div class="col">
+                {% block footer_link_section %}
+                    <div class="col">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
-                            <h5>Links</h5>
-                            <p>1</p>
-                            <p>2</p>
-                            <p>3</p>
+                        <h5>Plants</h5>
+                        <p><a href="{% url 'plantApp:all_plants_view' %}">Plants</a></p>
+                        <p><a href="{% url 'plantApp:new_plant_view' %}">Add Plant</a></p>
+                        <p><a href="{% url 'plantApp:search_view' %}">Search for Plants</a></p>
                     </div>
                     <div class="col">
-                            <h5>Links</h5>
-                            <p>1</p>
-                            <p>2</p>
-                            <p>3</p>
+                        <h5>Contact Us</h5>
+                        <p><a href="{% url 'main:contact_view' %}">Send a message</a></p>
+                        <p><a href="{% url 'main:contact_messages_view' %}">View Messages</a></p>
+                        <p>3</p>
                     </div>
                     <div class="col">
-                            <h5>Links</h5>
-                            <p>1</p>
-                            <p>2</p>
-                            <p>3</p>
+                        <h5>Links</h5>
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
                     </div>
                 </div>
             </div>
+                {% endblock %}
+
             </div>
         </div>
 

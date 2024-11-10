@@ -6,13 +6,16 @@
 
 <main>
 
-    <div class="container">
+    <div class="container p-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4 h-100">
+
+
         {% for msg in msgs %}
         <div class="col">
 
             <div class="card h-100 border border-0">
 
-                <div class="card-body">
+                <div class="card-body border rounded">
                     <h5 class="card-title">Sender: {{msg.first_name}} {{msg.last_name}} </h5>
                     <p class="card-text text-secondary">Email: {{msg.email}}</p>
                     <p class="card-text h5">Message: {{msg.message}}</p>
@@ -21,8 +24,9 @@
                 </div>
             </div>
 
-        </div> <!-- End Plant Card -->
+        </div>
         {% endfor %}
+        </div>
     </div>
 </main>
 {% endblock %}
