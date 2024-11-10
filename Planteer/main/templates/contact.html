@@ -5,22 +5,22 @@
 {% block main %}
 
 <main>
-    <div class="container p-5">
-        <div class="row row-cols-1 row-cols-md-3 g-5 justify-content-center">
+    <div class="container pt-5">
+        <div class="row row-cols-1 row-cols-md-2 g-5 justify-content-center">
             <div class="col">
-                <h1>Contact Us</h1>
-                <p>Fill the form bellow</p>
-                <form action="{% url 'main:contact_view' %}" method="post" enctype="multipart/form-data">
+                <h1 class="display-3">Contact Us</h1>
+                <h4>Fill the form bellow</h4>
+                <form class="mt-5" action="{% url 'main:contact_view' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-outline">
+                    <div class="">
+                        <div class="">
+                            <div class="form-outline mb-4">
                                 <label class="form-label" for="first_name">First name</label>
                                 <input type="text" id="first_name" name="first_name" class="form-control" placeholder="Hmzh"/>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-outline">
+                        <div class="">
+                            <div class="form-outline mb-4">
                                 <label class="form-label" for="last_name">Last name</label>
                                 <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Dubh"/>
                             </div>
